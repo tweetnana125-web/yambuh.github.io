@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🦑Catatan🦑</title>
+
+  <style>
+
+    body{
+      background: linear-gradient(to right,#ffd6e7,#d6e4ff);
+      font-family: Arial;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .box{
+      background: white;
+      width: 370px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    h2{
+      color: #ff4f81;
+    }
+
+    input{
+      width: 80%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid #ffb6c1;
+      margin-top: 10px;
+    }
+
+    button{
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #ff4f81;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover{
+      background: #ff2f6d;
+    }
+
+    li{
+      list-style: none;
+      background: #ffeaf2;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    select{
+      padding: 8px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .hiasan{
+      font-size: 25px;
+    }
+
+    img{
+      width: 180px;
+      margin-top: 15px;
+      border-radius: 15px;
+    }
+
+    #layar2{
+      display: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- LAYAR 1 -->
+<div class="box" id="layar1">
+
+  <div class="hiasan">
+    🦑🩷📝💖
+  </div>
+
+  <h2>Aplikasi Catatan</h2>
+
+  <p>Pilih Font 🎨</p>
+
+  <select id="fontPilihan">
+    <option value="Arial">Arial</option>
+    <option value="Courier New">Courier New</option>
+    <option value="Georgia">Georgia</option>
+    <option value="Comic Sans MS">Comic Sans</option>
+  </select>
+
+  <br>
+
+  <input type="text"
+  id="catatan"
+  placeholder="Tulis catatan kamu...">
+
+  <br>
+
+  <button onclick="simpan()">
+    Simpan Catatan
+  </button>
+
+</div>
+
+<!-- LAYAR 2 -->
+<div class="box" id="layar2">
+
+  <div class="hiasan">
+    🌈📒✨
+  </div>
+
+  <h2>Daftar Catatan</h2>
+
+  <!-- GAMBAR -->
+  <img src="50d5c18dd2cedffc32b1f9958441c14a.jpg">
+
+  <ul id="hasil"></ul>
+
+  <button onclick="kembali()">
+    ⬅ Kembali
+  </button>
+
+</div>
+
+<script>
+
+function simpan(){
+
+  let isi =
+  document.getElementById("catatan").value;
+
+  let font =
+  document.getElementById("fontPilihan").value;
+
+  if(isi == ""){
+    alert("Catatan kosong 😭");
+    return;
+  }
+
+  let item =
+  document.createElement("li");
+
+  item.innerHTML = "📌 " + isi;
+
+  item.style.fontFamily = font;
+
+  document.getElementById("hasil")
+  .appendChild(item);
+
+  // pindah layar
+  document.getElementById("layar1")
+  .style.display = "none";
+
+  document.getElementById("layar2")
+  .style.display = "block";
+
+}
+
+function kembali(){
+
+  document.getElementById("layar2")
+  .style.display = "none";
+
+  document.getElementById("layar1")
+  .style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
